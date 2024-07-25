@@ -4,6 +4,7 @@ import (
 	tg "github.com/mymmrac/telego"
 	ut "http.exchange/src/utils"
 	"log"
+	"strings"
 )
 
 var Bot *tg.Bot
@@ -32,7 +33,12 @@ func StartLongPolling() {
 func handle(input tg.Update) error {
 	chatID := input.Message.Chat.ID
 	message := input.Message.Text
-	log.Println(chatID, message)
+	userName := input.Message.From.Username
+	log.Printf("[@%s - #%d] msg: %s", userName, chatID, message)
+
+	if strings.EqualFold(message, "/rate") {
+		//handling command "rate"
+	}
 
 	return nil
 }
