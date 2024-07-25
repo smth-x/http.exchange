@@ -21,7 +21,7 @@ func StartLongPolling() {
 	defer Bot.StopLongPolling()
 
 	for update := range updates {
-		if update.Message == nil {
+		if update.Message != nil {
 			err := handle(update)
 			if !ut.IsErrNil(err) {
 				log.Println(err)
