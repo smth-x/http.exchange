@@ -12,7 +12,7 @@ func main() {
 	run()
 }
 func run() {
-	err := tg_bot.CreateBot(getValueFromIniFile("token.ini", "", "token")) //sectionInFile have to be "", case token placed not in sections
+	err := tg_bot.CreateBot(getValueFromIniFile("dataHolder.ini", "", "token")) //sectionInFile have to be "", case token placed not in sections
 	if !ut.IsErrNil(err) {
 		log.Fatalln(err)
 	}
